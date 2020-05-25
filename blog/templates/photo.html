@@ -1,0 +1,18 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <img id="mainicon" src="static\css\shelter.png">
+    <!--카테고리-->
+    <div class="category">
+        <a href="{% url 'create' %}">글쓰기</a>
+        <a href="{% url 'photo' %}">사진</a>
+        <a href="">영상</a>
+        <a href="">메세지</a>
+    </div>
+    <a class="upload" href="{% url 'create_photo' %}">업로드</a>
+
+</body>

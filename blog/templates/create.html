@@ -1,0 +1,30 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <img id="mainicon" src="static\css\shelter.png">
+    <!--카테고리-->
+    <div class="category">
+        <a href="{% url 'create' %}">글쓰기</a>
+        <a href="">사진</a>
+        <a href="">영상</a>
+        <a href="">메세지</a>
+    </div>
+    <div class="create">
+        <h2>글쓰기</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <!--post로 보낼 때 csrf_token적기.-->
+            {{form.as_p}} 
+            <!-- 폼의 내용을 띄워줌. -->
+            <!-- <input type="text" name="title">
+            <textarea name="body"></textarea> -->
+            <input type="submit" value="제출">
+        
+        </form>
+
+    </div>
+</body>
