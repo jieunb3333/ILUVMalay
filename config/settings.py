@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y7sz)aabz45zd4fc7p&y+(vm-nqe-n76mp2az=zx&!*7uwi$yf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 #이 주소의 서버 사용을 허용함.
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'portfolio.apps.PortfolioConfig',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+if DEBUG ==True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'db4rudnnrcuaqr',
+            'USER': 'surptunmicwcoy',
+            'PASSWORD': '8c12e5f45bd9ca87252ad0b1d7de3446f2c58302d4e0bec72aa4a6db9efb5828',
+            'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
+            'PORT': '5432',
+        }
+    }
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -85,16 +104,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db4rudnnrcuaqr',
-        'USER': 'surptunmicwcoy',
-        'PASSWORD': '8c12e5f45bd9ca87252ad0b1d7de3446f2c58302d4e0bec72aa4a6db9efb5828',
-        'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'db4rudnnrcuaqr',
+#         'USER': 'surptunmicwcoy',
+#         'PASSWORD': '8c12e5f45bd9ca87252ad0b1d7de3446f2c58302d4e0bec72aa4a6db9efb5828',
+#         'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
@@ -137,6 +156,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'portfolio','static')]
 
 STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')

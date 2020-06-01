@@ -9,7 +9,7 @@ from .forms import CreatePostForm
 def index(request):
     blogs = Blog.objects
     practices = Practice.objects
-    return render(request, 'index.html',{'blogs':blogs,'practices':practices});
+    return render(request, 'index.html',{'blogs':blogs,'practices':practices})
 
 def detail(request, blog_id):
     blog_detail = get_object_or_404(Blog, pk=blog_id)
@@ -65,9 +65,3 @@ def delete(request,blog_id):
     blog.delete()
 
     return redirect('index')
-
-def photo(request):
-    return render(request, 'photo.html')
-
-def create_photo(request):
-    return render(request,'create_photo.html')

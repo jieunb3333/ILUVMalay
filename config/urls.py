@@ -15,16 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog import views
+import blog.views
+import portfolio.views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index,name="index"),
-    path('detail/<int:blog_id>/', views.detail, name='detail'),
-    path('create/', views.create, name='create'),
-    path('delete/<int:blog_id>/',views.delete,name='delete'),
-    path('update/<int:blog_id>/',views.update,name='update'),
-    path('photo/',views.photo,name='photo'),
-    path('create_photo/',views.create_photo,name='create_photo'),
-]
+    path('',blog.views.index,name="index"),
+    path('detail/<int:blog_id>/', blog.views.detail, name='detail'),
+    path('create/', blog.views.create, name='create'),
+    path('delete/<int:blog_id>/',blog.views.delete,name='delete'),
+    path('update/<int:blog_id>/',blog.views.update,name='update'),
+    
+    path('portfolio', portfolio.views.portfolio,name='portfolio'),
+    path('portfolio_create', portfolio.views.portfolio_create,name='portfolio_create'),
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # <int--:이름> = <type:name> 여러객체를 위한 계층적 url을 다루기 위해서 사용함.
