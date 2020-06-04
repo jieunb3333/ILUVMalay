@@ -14,23 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-import blog.views
-import portfolio.views
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# app별로 url관리
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',blog.views.index,name="index"),
-    path('detail/<int:blog_id>/', blog.views.detail, name='detail'),
-    path('create/', blog.views.create, name='create'),
-    path('delete/<int:blog_id>/',blog.views.delete,name='delete'),
-    path('update/<int:blog_id>/',blog.views.update,name='update'),
     
-    path('portfolio', portfolio.views.portfolio,name='portfolio'),
-    path('portfolio_create', portfolio.views.portfolio_create,name='portfolio_create'),
+    # blog관련 path
+    path('',include('blog.urls')),
+
+    # portfolio 관련 path
+    path('portfolio/',include('portfolio.urls')),
+    
+    #users관련 path
+    path('users/',include('users.urls')),
+
+    #member관련 path
+    path('member/',include('member.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # <int--:이름> = <type:name> 여러객체를 위한 계층적 url을 다루기 위해서 사용함.

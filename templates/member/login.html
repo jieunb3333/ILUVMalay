@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form method="post" class="center">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="" id="">
+    <p>회원가입 시 아이디는 8자리로 입력해주세요.</p>
+</form>
+<button onclick="location.href='{% url 'member:signup' %}'">회원가입</button>
+{% endblock content %}

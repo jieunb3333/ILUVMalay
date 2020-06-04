@@ -9,11 +9,11 @@ from .forms import CreatePostForm
 def index(request):
     blogs = Blog.objects
     practices = Practice.objects
-    return render(request, 'index.html',{'blogs':blogs,'practices':practices})
+    return render(request, 'blog/index.html',{'blogs':blogs,'practices':practices})
 
 def detail(request, blog_id):
     blog_detail = get_object_or_404(Blog, pk=blog_id)
-    return render(request, 'detail.html', {'blog_detail':blog_detail})
+    return render(request, 'blog/detail.html', {'blog_detail':blog_detail})
 
 def create(request):
     if request.method == 'POST':
@@ -35,7 +35,7 @@ def create(request):
         # return redirect('/detail/' + str(blog.id))
     else:
         form = CreatePostForm()
-        return render(request,'create.html',{'form':form})
+        return render(request,'blog/create.html',{'form':form})
         #페이지만 바꿀 때
         # return render(request, 'create.html')
 
@@ -55,13 +55,19 @@ def update(request,blog_id):
         form = CreatePostForm(request.POST, instance=blog)
         if form .is_valid():
             blog = form.save()
-            return redirect('index')
+            return redirect('blog:information')
+            # path의 name을 따라감
     else:
         form = CreatePostForm(instance=blog)
-        return render(request, 'create.html',{'form':form})
+        return render(request, 'blog/create.html',{'form':form})
 
 def delete(request,blog_id):
     blog = Blog.objects.get(id=blog_id)
     blog.delete()
 
-    return redirect('index')
+    return redirect('blog:information')
+
+def information(request):
+    blogs = Blog.objects
+    return render(request, 'blog/information.html',{'blogs':blogs})
+

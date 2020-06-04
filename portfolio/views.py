@@ -12,7 +12,26 @@ def portfolio_create(request):
         form = CreatePortfolioForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('portfolio')
+            return redirect('portfolio:list')
     else:
         form = CreatePortfolioForm()
         return render(request,'portfolio/portfolio_create.html',{'form':form})
+
+def portfolio_update(request,portfolio_id):
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    if request.method == "POST":
+        form = CreatePortfolioForm(request.POST, instance=portfolio)
+        if form .is_valid():
+            portfolio = form.save()
+            return redirect('portfolio:list')
+    else:
+        form = CreatePortfolioForm(instance=portfolio)
+        return render(request,'portfolio/portfolio_create.html',{'form':form})
+
+
+
+def portfolio_delete(request,portfolio_id):
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    portfolio.delete()
+
+    return redirect('portfolio:list')

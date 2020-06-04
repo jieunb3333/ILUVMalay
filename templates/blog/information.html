@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+    
+
+
+{% block content %}
+    <a class="center" href="{% url 'blog:create' %}">글쓰기</a>
+
+    <h3>POST</h3>
+
+    <div class="post">
+        {% for blog in blogs.all %}
+        <h2>{{ blog.title }}</h2>
+        <a href="{% url 'blog:delete' blog.id %}">삭제</a>
+        <a href="{% url 'blog:update' blog.id %}">수정</a>
+        <br>
+        <p>{{ blog.summary }}<a href="{% url 'blog:detail' blog.id %}">글 보기</a>></p>>
+        <small>{{ blog.pub_date }}</small>
+        {% endfor %}
+    </div>
+{% endblock content %}

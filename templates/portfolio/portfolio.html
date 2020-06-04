@@ -18,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
-    <title>JIEUNBLOG_photo</title>
+    <title>pakage site</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/album/">
 
@@ -52,13 +52,14 @@
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
+          <!-- 뒤로가기버튼 -->
+          <button type="button" class="btn btn-default" aria-label="Left Align" onclick="location.href='{% url 'blog:index' %}'">
+            <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+            홈</button>
+          <a href="#" class="navbar-brand d-flex align-items-center" style="margin:0 auto">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            <strong>PHOTO</strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <strong>패키지 모아보기</strong></a>
+
         </div>
       </div>
     </header>
@@ -67,12 +68,11 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">MEMORY</h1>
-          <img src="portfolio\static\KakaoTalk_20200528_191314579.jpg" alt="___">
-          <p class="lead text-muted">"서ㅓㄹ명적기ㅣ~"</p>
+          <h4 class="jumbotron-heading">🌹 HOT PAKAGE 🌹</h4>
+    
+          <p class="lead text-muted">요즘 트렌드 여행부터 개인 맞춤 여행까지 한번에 고르세요</p>
           <p>
-            <a href="{% url 'portfolio_create' %}" class="btn btn-primary my-2">글쓰기</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            <a href="{% url 'portfolio:create' %}" class="btn btn-light btn-sm my-2">글쓰기</a>
           </p>
         </div>
       </section>
@@ -90,8 +90,10 @@
                   <p class="card-text">{{ portfolio.description }}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">보기</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">수정</button>
+
+                      <a href='{% url 'portfolio:portfolio_update' portfolio.id %}'>수정</a>
+                      <a href='{% url 'portfolio:portfolio_delete' portfolio.id %}'>삭제</a>
+                
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>
@@ -110,8 +112,6 @@
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
       </div>
     </footer>
 

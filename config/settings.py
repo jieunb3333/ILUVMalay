@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'portfolio.apps.PortfolioConfig',
+    'users.apps.UsersConfig',
+    'member.apps.MemberConfig',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,8 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
+        # 상위 폴더에서 templates를 찾는다
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -156,7 +159,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'portfolio','static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),'portfolio/static/']
 
 STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
 

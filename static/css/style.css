@@ -1,13 +1,13 @@
 /* css 파일 만들기 방법 static,css,style.css파일만들기 
 html(head)에 style 추가하기. */
-/* 터미널 새로켜기 +버튼 누르기 => 가상환경 다시 실행 */
+
 @font-face {font-family: 'Cafe24Oneprettynight';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');font-weight: normal;font-style: normal; }
 @font-face {font-family: 'Cafe24Ohsquare';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');font-weight: normal;font-style: normal; }
 body {
     margin: 0;
     padding:0;
     width: 1400px;
-    font-family: Cafe24Oneprettynight;
+    font-family: Cafe24Ohsquare;
     background-image: url("background.png");
     background-repeat: no-repeat;
     background-color: rgb(182, 137, 255);
@@ -37,6 +37,7 @@ h3{
     margin-top: 50px;
 
 }
+
 .category>a{
     display: inline;
     color: white;
@@ -50,11 +51,7 @@ h3{
     background-color: rgba(255, 255, 255, 0.26);
     padding: 15px;
 }
-div>img{
-    margin-top: 50px;
-    width: 150px;
-    height: 150px;
-}
+
 .post{
 
     background-color: rgba(255, 255, 255, 0.26);
@@ -86,5 +83,14 @@ div>img{
 }
 .upload{
     color:white;
+    margin: 0 auto;
+}
+.hot{
+    width: 100px;
+    height: auto;
+    display: block;
+}
+.center{
+    width: min-content;
     margin: 0 auto;
 }

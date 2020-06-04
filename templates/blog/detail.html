@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="post_detail">
+
+        <h1>{{ blog_detail.title }}</h1>
+        <small>{{ blog_detail.pub_date }}</small>
+        <p>{{ blog_detail.body }}</p>
+        <br>
+    </div>
+{% endblock content %}
+
