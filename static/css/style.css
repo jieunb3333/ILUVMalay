@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding:0;
     width: 1400px;
-    font-family: Cafe24Ohsquare;
+    font-family: 'Cafe24Oneprettynight';
     background-image: url("background.png");
     background-repeat: no-repeat;
     background-color: rgb(182, 137, 255);
@@ -16,8 +16,6 @@ body {
 div {
     text-align: center;
     margin: 0 auto;
-    
-
 }
 
 h3{
@@ -88,7 +86,6 @@ h3{
 .hot{
     width: 100px;
     height: auto;
-    display: block;
 }
 .center{
     width: min-content;
