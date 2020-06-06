@@ -84,10 +84,16 @@ h3{
     margin: 0 auto;
 }
 .hot{
-    width: 100px;
-    height: auto;
+    width: auto;
+    height: 100px;
 }
 .center{
     width: min-content;
     margin: 0 auto;
+}
+#center{
+    margin: 0 auto;
+}
+#font{
+    font-family: ;
 }
