@@ -2,6 +2,7 @@
 html(head)에 style 추가하기. */
 
 @font-face { font-family: 'BBTreeGR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff'); font-weight: normal; font-style: normal; }
+
 body {
     margin: 0;
     padding:0;
@@ -9,7 +10,6 @@ body {
     font-family: 'BBTreeGR';
     background-image: url("background.png");
     background-repeat: no-repeat;
-    background-color: rgb(182, 137, 255);
     
 }
 div {
@@ -56,7 +56,7 @@ h3{
 }
 .post>a{
 
-    margin:0 15px;
+    margin:0 30px;
 }
 .post_detail{
     color: whitesmoke;
@@ -84,7 +84,7 @@ h3{
 }
 .hot{
     width: auto;
-    height: 100px;
+    height: 150px;
 }
 .center{
     width: min-content;
@@ -95,4 +95,11 @@ h3{
 }
 #font{
     font-family: 'BBTreeGR';
+}
+
+.fontColor{
+    color: white;
+}
+#center>a{
+    margin : 10px;
 }
