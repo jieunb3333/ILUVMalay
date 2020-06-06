@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from .models import Blog,Practice
+from django.contrib.auth.models import User
 from django.utils import timezone
 from .forms import CreatePostForm
 
@@ -71,3 +72,6 @@ def information(request):
     blogs = Blog.objects
     return render(request, 'blog/information.html',{'blogs':blogs})
 
+def my(request):
+
+    return render(request, 'blog/my.html', {'my':my})

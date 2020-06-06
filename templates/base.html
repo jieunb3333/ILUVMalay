@@ -22,6 +22,7 @@
 <body>
     <div class="btn-group" role="group" aria-label="..." style="position: relative;
     left:1000px;top:20px">
+        <button type="button" class="btn btn-default" onclick="location.href='{% url 'blog:my' %}'">내 정보</button>
         <button type="button" class="btn btn-default" onclick="location.href='{% url 'users:login' %}'">회원 로그인</button>
         <button type="button" class="btn btn-default" onclick="location.href='{% url 'member:login' %}'">직원 로그인</button>
     </div>
