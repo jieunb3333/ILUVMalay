@@ -24,11 +24,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      body{
-        font-family: 'BBTreeGR';
-      }
-    </style>
 
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
@@ -63,7 +58,7 @@
             홈</button>
           <a href="#" class="navbar-brand d-flex align-items-center" style="margin:0 auto">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            <strong>패키지 모아보기</strong></a>
+            <strong style="font-family: 'BBTreeGR';" >패키지 모아보기</strong></a>
 
         </div>
       </div>
@@ -73,9 +68,9 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <h4 class="jumbotron-heading">🌹 HOT PAKAGE 🌹</h4>
+          <h4 class="jumbotron-heading" style="font-family: 'BBTreeGR';">🌹 HOT PAKAGE 🌹</h4>
           <img style="width:700px; height:auto; margin-top:20px; margin-bottom:20px;" src="{% static '/css/wannago.png' %}" alt="">
-          <p class="lead text-muted">요즘 트렌드 여행부터 개인 맞춤 여행까지 한번에 고르세요</p>
+          <p class="lead text-muted" style="font-family: 'BBTreeGR';">요즘 트렌드 여행부터 개인 맞춤 여행까지 한번에 고르세요</p>
           <p>
             <a href="{% url 'portfolio:create' %}" class="btn btn-light btn-sm my-2">글쓰기</a>
           </p>
@@ -96,8 +91,8 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
 
-                      <a href='{% url 'portfolio:portfolio_update' portfolio.id %}'>수정</a>
-                      <a href='{% url 'portfolio:portfolio_delete' portfolio.id %}'>삭제</a>
+                      <a style="font-family: 'BBTreeGR';" href='{% url 'portfolio:portfolio_update' portfolio.id %}'>수정</a>
+                      <a style="font-family: 'BBTreeGR';" href='{% url 'portfolio:portfolio_delete' portfolio.id %}'>삭제</a>
                 
                     </div>
                     <small class="text-muted">9 mins</small>
