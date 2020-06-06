@@ -1,5 +1,11 @@
-<form method="post">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="center"><form method="post">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" name="" id="">
-</form>
+</form></div>
+
+{% endblock content %}

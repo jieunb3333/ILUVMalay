@@ -1,5 +1,12 @@
-<form method="post">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="center"><form method="post">
     {% csrf_token %}
     {{form.as_p}}
+    <p>동반인 이름을 입력해주세요. (있는 경우만 입력.)</p>
+    <input type="name" >
     <input type="submit" name="" id="">
-</form>
+</form></div>
+{% endblock content %}

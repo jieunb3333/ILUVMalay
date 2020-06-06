@@ -70,9 +70,10 @@
         <div class="container">
           <h4 class="jumbotron-heading" style="font-family: 'BBTreeGR';">🌹 HOT PAKAGE 🌹</h4>
           <img style="width:700px; height:auto; margin-top:20px; margin-bottom:20px;" src="{% static '/css/wannago.png' %}" alt="">
-          <p class="lead text-muted" style="font-family: 'BBTreeGR';">요즘 트렌드 여행부터 개인 맞춤 여행까지 한번에 고르세요</p>
-          <p>
-            <a href="{% url 'portfolio:create' %}" class="btn btn-light btn-sm my-2">글쓰기</a>
+          <p class="lead text-muted" style="font-family: 'BBTreeGR';">✔ 요즘 트렌드 여행부터 개인 맞춤 여행까지 한번에 고르세요</p>
+          <p class="lead text-muted" style="font-family: 'BBTreeGR';">✔ 말레이시아에서 최고의 나날을 보내고 싶다면 당장 픽!</p>
+
+                      <a href="{% url 'portfolio:create' %}" class="btn btn-light btn-sm my-2">글쓰기</a>
           </p>
         </div>
       </section>
@@ -87,7 +88,11 @@
               <div class="card mb-4 shadow-sm">
                 <img class="card-img-top" src="{{ portfolio.image.url }}" alt="Card image cap">
                 <div class="card-body">
+                  <strong>{{ portfolio.pakage_name }}</strong>
                   <p class="card-text">{{ portfolio.description }}</p>
+                  <p class="card-text">최대 {{ portfolio.max_person }}명 현재 {{ portfolio.pre_person }}명</p>
+                  <p class="card-text">; {{ portfolio.during_date }}</p>
+                                  
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
 
