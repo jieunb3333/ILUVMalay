@@ -1,13 +1,12 @@
 /* css 파일 만들기 방법 static,css,style.css파일만들기 
 html(head)에 style 추가하기. */
 
-@font-face {font-family: 'Cafe24Oneprettynight';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');font-weight: normal;font-style: normal; }
-@font-face {font-family: 'Cafe24Ohsquare';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');font-weight: normal;font-style: normal; }
+@font-face { font-family: 'BBTreeGR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff'); font-weight: normal; font-style: normal; }
 body {
     margin: 0;
     padding:0;
     width: 1400px;
-    font-family: 'Cafe24Oneprettynight';
+    font-family: 'BBTreeGR';
     background-image: url("background.png");
     background-repeat: no-repeat;
     background-color: rgb(182, 137, 255);
@@ -21,7 +20,7 @@ div {
 h3{
     text-align: center;
     margin: 30px auto;
-    font-family: 'Cafe24Ohsquare';
+    font-family: 'BBTreeGR';
     color: white;
 }
 #mainicon {
@@ -40,7 +39,7 @@ h3{
     display: inline;
     color: white;
     margin: 0 20px;
-    font-family: 'Cafe24Ohsquare'
+    font-family: 'BBTreeGR'
 }
 
 
@@ -77,7 +76,7 @@ h3{
 }
 .create>h2{
     color: whitesmoke;
-    font-family: 'Cafe24Ohsquare';
+    font-family: 'BBTreeGR';
 }
 .upload{
     color:white;
@@ -95,5 +94,5 @@ h3{
     margin: 0 auto;
 }
 #font{
-    font-family: ;
+    font-family: 'BBTreeGR';
 }
