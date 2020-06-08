@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y7sz)aabz45zd4fc7p&y+(vm-nqe-n76mp2az=zx&!*7uwi$yf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 #이 주소의 서버 사용을 허용함.
