@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y7sz)aabz45zd4fc7p&y+(vm-nqe-n76mp2az=zx&!*7uwi$yf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 #이 주소의 서버 사용을 허용함.
@@ -78,14 +78,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-if DEBUG == True:
+#아까 디버그를 켜둔상태로 migrate해서 로컬 db에 migrate되었나보다 
+#디버그 켜둔 상태로 migrate한거랑 디버그 끈 상태로 migrate한거랑 다른 db에 적용돼
+if DEBUG == True:#로컬DB(sqlite)
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-else:
+else:#헤로쿠DB서버(postgresql)
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -96,6 +98,8 @@ else:
             'PORT': '5432',
         }
     }
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -117,8 +121,6 @@ else:
 #         'PORT': '5432',
 #     }
 # }
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
