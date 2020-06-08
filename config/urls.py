@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
+from django.urls import re_path
 
 # app별로 url관리
 
@@ -34,6 +36,9 @@ urlpatterns = [
 
     #member관련 path
     path('member/',include('member.urls')),
+
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+    # 새로넣음
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # <int--:이름> = <type:name> 여러객체를 위한 계층적 url을 다루기 위해서 사용함.
